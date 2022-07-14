@@ -22,7 +22,7 @@ if ( !isset($_POST['username'], $_POST['password']) ) {
 }
 
 // Prepare our SQL to help prevent SQL injection.
-if ($stmt = $conn->prepare('SELECT userID, passCode FROM users WHERE userName = ?')) {
+if ($stmt = $conn->prepare('SELECT userID, passCode, email FROM users WHERE userName = ?')) {
     // Bind parameters (s = string, i = int, b = blob, etc), in our case the username is a string so we use "s"
     $stmt->bind_param('s', $_POST['username']);
     $stmt->execute();
@@ -30,7 +30,8 @@ if ($stmt = $conn->prepare('SELECT userID, passCode FROM users WHERE userName = 
     $stmt->store_result();
 
     if ($stmt->num_rows > 0) {
-        $stmt->bind_result($userID, $passCode);
+        $stmt->bind_result($userID, $passCode, $email);
+
         $stmt->fetch();
         // Account exists, now we verify the password.
         // Note: remember to use password_hash in your registration file to store the hashed passwords.
@@ -41,6 +42,8 @@ if ($stmt = $conn->prepare('SELECT userID, passCode FROM users WHERE userName = 
             $_SESSION['loggedin'] = TRUE;
             $_SESSION['name'] = $_POST['username'];
             $_SESSION['id'] = $userID;
+            $_SESSION['password'] = $passCode;
+            $_SESSION['email'] = $email;
             //echo 'Welcome ' . $_SESSION['name'] . '!';
             header('Location: mainPage.php');
         } else {
