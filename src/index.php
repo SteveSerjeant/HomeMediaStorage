@@ -11,6 +11,8 @@
         <link rel="stylesheet" href="../css/index.css" type="text/css">
         <!--    /*for alert messages*/-->
         <link rel="stylesheet" href="../css/forAlerts.css" type="text/css">
+        <!--    /*for navtop stylings*/-->
+        <link rel = "stylesheet" href="../css/mainPage.css">
 
 	</head>
 	<body>
@@ -24,6 +26,13 @@
 
     include "functions.php";
     ?>
+    <nav class="navtop">
+        <div>
+            <h1>Home Media Storage</h1>
+            <a href="register.php"><i class="fa fa-registered"></i>To Register</a>
+        </div>
+    </nav>
+    <div class="login">
 		<div class="login">
 			<h1>Login</h1>
 			<form action="authenticate.php" method="post">
