@@ -24,6 +24,9 @@
     $error = (isset($_GET["err"])) ? base64_decode($_GET["err"]) : "";
     if ($error == "wrongUsername") {echo "<div class=\"alert alert-danger alert-dismissible\" role=\"alert\" id=\"banner\"><button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"><span aria-hidden=\"true\">&times;</span></button><strong>ERROR:</strong>      Incorrect Credentials</div>";}
 
+    $error = (isset($_GET["err"])) ? base64_decode($_GET["err"]) : "";
+    if ($error == "registered") {echo "<div class=\"alert alert-success alert-dismissible\" role=\"alert\" id=\"banner\"><button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"><span aria-hidden=\"true\">&times;</span></button><strong>REGISTRATION SUCCESSFUL:</strong>      You Can Now Login</div>";}
+
     include "functions.php";
     ?>
     <nav class="navtop">
