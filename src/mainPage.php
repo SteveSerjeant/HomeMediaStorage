@@ -7,7 +7,7 @@ if (!isset($_SESSION['loggedin'])) {
     exit;
 }
 ?>
-#
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,7 +19,7 @@ if (!isset($_SESSION['loggedin'])) {
 <body class="loggedin">
 <nav class="navtop">
     <div>
-        <h1>Hoem Media Storage</h1>
+        <h1>Home Media Storage</h1>
         <a href="profile.php"><i class="fas fa-user-circle"></i>Profile</a>
         <a href="logout.php"><i class="fas fa-sign-out-alt"></i>Logout</a>
     </div>
