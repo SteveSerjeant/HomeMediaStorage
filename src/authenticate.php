@@ -48,11 +48,15 @@ if ($stmt = $conn->prepare('SELECT userID, passCode, email FROM users WHERE user
             header('Location: mainPage.php');
         } else {
             // Incorrect password
-            echo 'Incorrect username and/or PASSWORD!';
+            //echo 'Incorrect username and/or PASSWORD!';
+            header('Location: index.php?err=' . base64_encode("wrongPassword"));
+            die();
         }
     } else {
         // Incorrect username
         echo 'Incorrect USERNAME and/or password!';
+        header('Location: index.php?err=' . base64_encode("wrongUsername"));
+        die();
     }
 
 
