@@ -60,7 +60,7 @@ if ($stmt = $con->prepare('SELECT userID, passCode FROM users WHERE userName = ?
             $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
             $stmt->bind_param('sss', $_POST['username'], $password, $_POST['email']);
             $stmt->execute();
-            echo 'You have successfully registered, you can now login!';
+//            echo 'You have successfully registered, you can now login!';
             header('Location: index.php?err=' . base64_encode("registered"));
 
         } else {

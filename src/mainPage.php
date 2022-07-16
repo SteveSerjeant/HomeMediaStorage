@@ -6,6 +6,19 @@ if (!isset($_SESSION['loggedin'])) {
     header('Location: index.php');
     exit;
 }
+include_once ("dbconn.php");
+
+$result = mysqli_query($conn, "SELECT * FROM mediaDetails");
+
+//while ($res = mysqli_fetch_array($result))
+//{
+//    $mediaID = $res['MediaID'];
+//    $typeID = $res['typeID'];
+//    $title = $res['title'];
+//    $location = $res['location'];
+//    $notes = $res['notes'];
+//
+//}
 ?>
 
 <!DOCTYPE html>
@@ -27,9 +40,53 @@ if (!isset($_SESSION['loggedin'])) {
 <div class="content">
     <h2>Home Page</h2>
     <p>Welcome back, <?=$_SESSION['name']?>!</p>
-    <br>
-    <p>ID: <?=$_SESSION['id']?>.</p>
+<!--    <br>-->
+<!--    <p>ID: --><?//=$_SESSION['id']?><!--.</p>-->
 
+    <div class = "wrapper">
+        <div class="container-fluid">
+            <div class = "row">
+                <table style="width: 60%; height: 20%; text-align: center">
+                    <tr bgcolor="#afeeee" style="text-align: center">
+                        <td style='text-align: center'>mediaID</td>
+                        <td style='text-align: center'>typeID</td>
+                        <td style='text-align: center'>Title</td>
+                        <td style='text-align: center'>Location</td>
+                        <td style='text-align: center'>Notes</td>
+                    </tr>
+                    <?php
+                    while($res = mysqli_fetch_array($result)) {
+                        echo "<tr style='text-align: center'>";
+                        echo "<td bgcolor='' style='text-align: center'>".$res['mediaID']."</td>";
+                        echo "<td style='text-align: center'>".$res['typeID']."</td>";
+                        echo "<td style='text-align: left'>".$res['title']."</td>";
+                        echo "<td style='text-align: center'>".$res['location']."</td>";
+                        echo "<td style='text-align: center'>".$res['notes']."</td>";
+
+                    }
+
+                    ?>
+                </table>
+            </div>
+        </div>
+    </div>
 </div>
+<!--show main media list-->
+<?php
+//$sql = 'SELECT * FROM mediaDetails';
+//$stmt = $conn->prepare($sql);
+//$stmt->execute();
+//$result = $stmt->get_result();
+//
+//if ($result->num_rows > 0){
+//    while ($row = $result->fetch_assoc())
+//    {
+//        echo '<option value="' . $row["mediaID"] . '">' . $row["title"] . '</option>';
+//    }
+//}
+
+
+?>
+
 </body>
 </html>
