@@ -38,7 +38,7 @@ body.loggedin {
     background-color: #f3f4f7;
 }
 .content {
-    width: 1000px;
+    width: 1500px;
     margin: 0 auto;
 }
 .content h2 {
@@ -65,4 +65,8 @@ body.loggedin {
 .content > div p {
     padding: 5px;
     margin: 0 0 10px 0;
+}
+
+tr:nth-child(even) {
+    background-color: #d6eeee;
 }

@@ -28,6 +28,17 @@ $result = mysqli_query($conn, "SELECT * FROM mediaDetails");
     <title>Home Page</title>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
     <link rel = "stylesheet" href="../css/mainPage.css">
+<!--    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css">-->
+
+<!--    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>-->
+<!--    <script src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>-->
+
+<!--    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">-->
+<!--    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>-->
+<!--    <link rel="stylesheet" href="http://cdn.datatables.net/1.10.2/css/jquery.dataTables.min.css">-->
+<!--    <script type="text/javascript" src="http://cdn.datatables.net/1.10.2/js/jquery.dataTables.min.js"></script>-->
+<!--    <script type="text/javascript" src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>-->
+
 </head>
 <body class="loggedin">
 <nav class="navtop">
@@ -45,8 +56,17 @@ $result = mysqli_query($conn, "SELECT * FROM mediaDetails");
 
     <div class = "wrapper">
         <div class="container-fluid">
+
             <div class = "row">
-                <table style="width: 60%; height: 20%; text-align: center">
+                <table id="output" style="width: 100%; height: 20%; text-align: center">
+                    <colgroup>
+                        <col span="1" style="width: 5%">
+                        <col span="1" style="width: 5%">
+                        <col span="1" style="width: 50%">
+                        <col span="1" style="width: 5%">
+                        <col span="1" style="width: 35%">
+                    </colgroup>
+
                     <tr bgcolor="#afeeee" style="text-align: center">
                         <td style='text-align: center'>mediaID</td>
                         <td style='text-align: center'>typeID</td>
@@ -61,7 +81,7 @@ $result = mysqli_query($conn, "SELECT * FROM mediaDetails");
                         echo "<td style='text-align: center'>".$res['typeID']."</td>";
                         echo "<td style='text-align: left'>".$res['title']."</td>";
                         echo "<td style='text-align: center'>".$res['location']."</td>";
-                        echo "<td style='text-align: center'>".$res['notes']."</td>";
+                        echo "<td style='text-align: left'>".$res['notes']."</td>";
 
                     }
 
@@ -87,6 +107,13 @@ $result = mysqli_query($conn, "SELECT * FROM mediaDetails");
 
 
 ?>
-
+<!--<script src="../javascript/tablePages.js"></script>-->
+<script>
+    $(document).ready(function () {
+        $('#output').dataTable();
+    })
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
 </body>
 </html>
