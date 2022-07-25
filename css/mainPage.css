@@ -67,6 +67,6 @@ body.loggedin {
     margin: 0 0 10px 0;
 }
 
-tr:nth-child(even) {
-    background-color: #d6eeee;
-}
+/*tr:nth-child(even) {*/
+/*    background-color: #d6eeee;*/
+/*}*/

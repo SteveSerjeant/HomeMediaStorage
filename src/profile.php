@@ -15,13 +15,6 @@ if (mysqli_connect_errno()) {
     exit('Failed to connect to MySQL: ' . mysqli_connect_error());
 }
 
-//$stmt = $conn->prepare('SELECT passCode, email FROM accounts WHERE userID = ?');
-//// In this case we can use the account ID to get the account info.
-//$stmt->bind_param('i', $_SESSION['id']);
-//$stmt->execute();
-//$stmt->bind_result($password, $email);
-//$stmt->fetch();
-//$stmt->close();
 ?>
 
 <!DOCTYPE html>
@@ -36,7 +29,7 @@ if (mysqli_connect_errno()) {
 <nav class="navtop">
     <div>
         <h1>Home Media Storage</h1>
-        <a href="mainPage.php"><i class="fas fa-arrow-left"></i>Back</a>
+        <a href="homePage.php"><i class="fas fa-arrow-left"></i>Back</a>
         <a href="logout.php"><i class="fas fa-sign-out-alt"></i>Logout</a>
     </div>
 </nav>

@@ -1,5 +1,9 @@
 <?php
-
+//// If the user is not logged in redirect to the login page...
+//if (!isset($_SESSION['loggedin'])) {
+//    header('Location: index.php');
+//    exit;
+//}
 ?>
 
 <!DOCTYPE html>
@@ -16,7 +20,7 @@
     <link rel = "stylesheet" href="../css/mainPage.css">
 
 </head>
-<body>
+<body class="loggedin">
 <?php
 $error = (isset($_GET["err"])) ? base64_decode($_GET["err"]) : "";
 if ($error == "userExists") {echo "<div class=\"alert alert-danger alert-dismissible\" role=\"alert\" id=\"banner\"><button type=\"button\" class=\"close\" data-dismiss=\"alert\" aria-label=\"Close\"><span aria-hidden=\"true\">&times;</span></button><strong>ERROR:</strong>      Username Already Exists</div>";}

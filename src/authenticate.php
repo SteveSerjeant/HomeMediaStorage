@@ -45,7 +45,7 @@ if ($stmt = $conn->prepare('SELECT userID, passCode, email FROM users WHERE user
             $_SESSION['password'] = $passCode;
             $_SESSION['email'] = $email;
             //echo 'Welcome ' . $_SESSION['name'] . '!';
-            header('Location: mainPage.php');
+            header('Location: homePage.php');
         } else {
             // Incorrect password
             //echo 'Incorrect username and/or PASSWORD!';
