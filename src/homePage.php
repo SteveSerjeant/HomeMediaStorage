@@ -8,8 +8,10 @@ if (!isset($_SESSION['loggedin'])) {
 }
 include_once ("dbconn.php");
 
-$result = mysqli_query($conn, "SELECT * FROM mediaDetails");
-$mediatypes = mysqli_query($conn, "SELECT * FROM mediaTypes");
+//$result = mysqli_query($conn, "SELECT * FROM mediaDetails");
+$result = mysqli_query($conn, 'CALL `fetchData`');
+
+//$mediatypes = mysqli_query($conn, "SELECT * FROM mediaTypes");
 
 ?>
 
@@ -68,6 +70,7 @@ $mediatypes = mysqli_query($conn, "SELECT * FROM mediaTypes");
 
             }
 
+
             ?>
 
         </tr>
@@ -99,16 +102,17 @@ $mediatypes = mysqli_query($conn, "SELECT * FROM mediaTypes");
         </thead>
         <tbody>
         <tr>
-            <?php
-            while($res = mysqli_fetch_array($mediatypes)) {
-                echo "<tr style='text-align: center'>";
-                echo "<td bgcolor='' style='text-align: center'>".$res['ID']."</td>";
-                echo "<td style='text-align: left'>".$res['description']."</td>";
-
-
-            }
-
-            ?>
+<!--            --><?php
+//
+//            while($res = mysqli_fetch_array($mediatypes)) {
+//                echo "<tr style='text-align: center'>";
+//                echo "<td bgcolor='' style='text-align: center'>".$res['ID']."</td>";
+//                echo "<td style='text-align: left'>".$res['description']."</td>";
+//
+//
+//            }
+//
+//            ?>
 
         </tr>
 
